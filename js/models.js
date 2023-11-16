@@ -73,8 +73,28 @@ class StoryList {
    * Returns the new Story instance
    */
 
-  async addStory( /* user, newStory */) {
+  // TODO:
+  async addStory(user, newStory) {
     // UNIMPLEMENTED: complete this function!
+    const {title, author, url} = newStory;
+
+    const newStoryParams = new URLSearchParams(
+      {
+        "token": "YOUR_TOKEN_HERE",
+        "story": {
+          "author": ${author},
+          "title": ${title},
+          "url": ${url},
+        }
+      }
+    )
+
+    const response = await fetch(
+      {
+        `${BASE_URL}/stories`,
+        {method: "POST", body: key}
+      }
+    )
   }
 }
 
