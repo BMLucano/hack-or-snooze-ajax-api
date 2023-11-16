@@ -74,9 +74,10 @@ class StoryList {
    */
 
   // TODO: UNIMPLEMENTED: complete this function!
-  async addStory(user, newStory) {
+  async addStory(currentUser, newStory) {
     const { title, author, url } = newStory;
-    const token = user.loginToken;
+    const token = currentUser;
+    console.log('This is user=', user);
 
     const response = await fetch(`${BASE_URL}/signup`, {
       method: "POST",
@@ -85,6 +86,14 @@ class StoryList {
         "content-type": "application / json"
         }
     });
+
+    console.log("This is response=", response);
+
+    const tokenStoryData = await response.json();
+
+    return tokenStoryData.map(({title, author, url}) =>
+      ({title, author, url})
+    );
   }
 }
 
