@@ -76,25 +76,15 @@ class StoryList {
   // TODO:
   async addStory(user, newStory) {
     // UNIMPLEMENTED: complete this function!
-    const {title, author, url} = newStory;
+    const { title, author, url } = newStory;
 
-    const newStoryParams = new URLSearchParams(
-      {
-        "token": "YOUR_TOKEN_HERE",
-        "story": {
-          "author": ${author},
-          "title": ${title},
-          "url": ${url},
+    const response = await fetch(`${BASE_URL}/signup`, {
+      method: "POST",
+      body: JSON.stringify({ story: { title, author, url } }),
+        headers: {
+        "content-type": "application / json"
         }
-      }
-    )
-
-    const response = await fetch(
-      {
-        `${BASE_URL}/stories`,
-        {method: "POST", body: key}
-      }
-    )
+    });
   }
 }
 
