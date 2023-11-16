@@ -74,12 +74,12 @@ class StoryList {
    */
 
   // TODO: UNIMPLEMENTED: complete this function!
-  async addStory(currentUser, newStory) {
+  async addStory(user, newStory) {
     const { title, author, url } = newStory;
-    const token = currentUser;
+    const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlcyB1c2VydCIsImlhdCI6MTcwMDE3MDg5NX0.82IL4Z2Je7GSSHhK7veqciU2fWSvyNeAEGwNP_zZbn0";
     console.log('This is user=', user);
 
-    const response = await fetch(`${BASE_URL}/signup`, {
+    const response = await fetch(`${BASE_URL}/stories`, {
       method: "POST",
       body: JSON.stringify({ token, story: { title, author, url } }),
         headers: {
@@ -91,9 +91,11 @@ class StoryList {
 
     const tokenStoryData = await response.json();
 
-    return tokenStoryData.map(({title, author, url}) =>
-      ({title, author, url})
-    );
+    // return tokenStoryData.map(({title, author, url}) =>
+    //   ({title, author, url})
+    // );
+    const story = new Story(tokenStoryData.story)
+    return story;
   }
 }
 
