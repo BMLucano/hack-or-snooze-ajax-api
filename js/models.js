@@ -29,6 +29,7 @@ class Story {
     return url.host;
   }
 }
+//hostname
 
 
 /******************************************************************************
@@ -67,6 +68,7 @@ class StoryList {
     return new StoryList(stories);
   }
 
+  //TODO: add to story list
   /** Adds story data to API, makes a Story instance, adds it to story list.
    * - user - the current instance of User who will post the story
    * - obj of {title, author, url}
