@@ -271,9 +271,6 @@ class User {
     const favoritesData = await response.json();
     console.log("This is for unfavoriting =", favoritesData);
 
-
-    // TODO: favorite.storyId is not matching storyId even when the same
-
     const favoriteToDeleteIndex = this.favorites.findIndex((favorite) => {
       return favorite.storyId === storyId;
     });
