@@ -25,7 +25,7 @@ function generateStoryMarkup(story) {
   const hostName = story.getHostName();
   return $(`
       <li id="${story.storyId}">
-        <button type="click" data-favorite="true"
+        <button type="click" data-favorite="false"
         id ="favorite-button">Favorite/Unfavorite</button>
         <a href="${story.url}" target="a_blank" class="story-link">
           ${story.title}
@@ -86,9 +86,31 @@ function putFavoriteStoriesOnPage() {
 }
 
 /**Handles favoriting/unfavoriting a story */
-$("#favorite-button").on("click", toggleStoryFavorite);
+$allStoriesList.on("click", "#favorite-button", toggleStoryFavorite);
+
 function toggleStoryFavorite(evt) {
-  if($("#favorite-button[data-favorite]")){
+  evt.preventDefault();
+
+  const $favoriteButton = $("#favorite-button");
+
+  console.log('toggleStoryFavoriteButton worked!');
+
+  let statusOfToggleButton = $favoriteButton.attr("data-favorite");
+
+  console.log("This is statusOfToggleButton =", statusOfToggleButton);
+
+  if (statusOfToggleButton === "true") {
+    statusOfToggleButton = false;
+  } else {
+    statusOfToggleButton = true;
+  }
+
+  $favoriteButton.attr("data-favorite", statusOfToggleButton);
+
+  console.log('Status of favorite button data-favorite', $favoriteButton);
+
+  console.log("This is new status of statusOfToggleButton", statusOfToggleButton);
+
+  // if( $("#favorite-button[data-favorite]")){
 
   }
-}
