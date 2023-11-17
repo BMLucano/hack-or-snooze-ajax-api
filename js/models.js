@@ -76,22 +76,22 @@ class StoryList {
   // TODO: UNIMPLEMENTED: complete this function!
   async addStory(user, newStory) {
     const { title, author, url } = newStory;
-    const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlcyB1c2VydCIsImlhdCI6MTcwMDE3MDg5NX0.82IL4Z2Je7GSSHhK7veqciU2fWSvyNeAEGwNP_zZbn0";
+    const token = user.loginToken;
+    console.log('This is token = ', token);
     console.log('This is user=', user);
-
     const response = await fetch(`${BASE_URL}/stories`, {
       method: "POST",
-      body: (
+      body: JSON.stringify(
         {
-          "token": `${token}`,
-          "story": {
-            "author": `${author}`,
-            "title": `${title}`,
-            "url": `${url}`
+          token: token,
+          story: {
+            author: author,
+            title: title,
+            url: url,
           }
         }),
       headers: {
-        "content-type": "application / json"
+        "content-type": "application/json"
       }
     });
 
