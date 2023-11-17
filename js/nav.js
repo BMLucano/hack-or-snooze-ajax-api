@@ -43,6 +43,7 @@ $("#nav-submit").on("click", navSubmitClick);
 
 function navSubmitClick(evt) {
   evt.preventDefault();
+  hidePageComponents();
   $submitForm.show();
 
 }
@@ -54,6 +55,7 @@ $("#nav-favorites").on("click", navFavoritesClick);
 
 function navFavoritesClick(evt){
 evt.preventDefault();
+hidePageComponents();
 console.log("navbarFavoritesCLick worked")
 putFavoriteStoriesOnPage();
 
