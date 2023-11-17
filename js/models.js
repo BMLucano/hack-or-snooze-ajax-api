@@ -96,6 +96,10 @@ class StoryList {
     console.log("tokenStorydata=", tokenStoryData);
 
     const story = new Story(tokenStoryData.story);
+
+    this.stories.push(story);
+    console.log("This is this.stories =", this.stories);
+
     return story;
   }
 }
