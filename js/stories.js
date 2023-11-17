@@ -60,9 +60,9 @@ $submitForm.on("submit", getDataFromStoryFormAndDisplay);
  */
 
 async function getDataFromStoryFormAndDisplay() {
-  const author = $("#create-author").val();
-  const title = $("#create-title").val();
-  const url = $("#create-url").val();
+  const author = $("#submit-author").val();
+  const title = $("#submit-title").val();
+  const url = $("#submit-url").val();
 
   const newStory = await storyList.addStory(currentUser, {author, title, url});
 

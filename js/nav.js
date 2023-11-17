@@ -4,9 +4,6 @@
  * Handling navbar clicks and updating navbar
  */
 
-const $navbarLinks = $(".nav-links");
-const $submitForm = $("#submit-form");
-
 /** Show main list of all stories when click site name */
 
 function navAllStories(evt) {
@@ -40,7 +37,7 @@ function updateNavOnLogin() {
   $navUserProfile.text(`${currentUser.username}`).show();
 }
 
-$navbarLinks.on("click", ".submit-link", navSubmitClick);
+$("#nav-submit").on("click", navSubmitClick);
 
 /** Show submit form when clicking "SUBMIT" in navbar. */
 
