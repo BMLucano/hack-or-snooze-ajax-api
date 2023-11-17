@@ -96,6 +96,8 @@ class StoryList {
 
     const story = new Story(tokenStoryData.story);
 
+    console.log('This is story = ', story);
+
     this.stories.push(story);
     console.log("This is this.stories =", this.stories);
 
@@ -126,6 +128,7 @@ class User {
     this.createdAt = createdAt;
 
     // instantiate Story instances for the user's favorites and ownStories
+    console.log("This is favorites = ", favorites);
     this.favorites = favorites.map(s => new Story(s));
     this.ownStories = ownStories.map(s => new Story(s));
 
