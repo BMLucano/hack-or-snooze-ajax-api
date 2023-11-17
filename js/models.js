@@ -252,6 +252,40 @@ class User {
 
   /**removing a favorite */
   async removeFavorite(story) {
+    const username = this.username;
+    const storyId = story.storyId;
+
+    console.log('This is storyId', storyId);
+
+    const token = this.loginToken;
+
+    const response = await fetch(
+      `${BASE_URL}/users/${username}/favorites/${storyId}`, {
+        method: "DELETE",
+        body: JSON.stringify({ token }),
+        headers: {
+          "content-type": "application/json",
+        }
+      });
+
+    const favoritesData = await response.json();
+    console.log("This is for unfavoriting =", favoritesData);
+
+
+    // TODO: favorite.storyId is not matching storyId even when the same
+
+    const favoriteToDeleteIndex = this.favorites.findIndex((favorite) => {
+      favorite.storyId === storyId;
+    });
+
+    // console.log('This is favorite.storyId =', favorite.storyId);
+
+    console.log('This is favoriteToDeleteIndex = ', favoriteToDeleteIndex);
+
+    this.favorites.splice(favoriteToDeleteIndex, 1);
+
+
+    console.log('This is favorites =', this.favorites);
 
   }
 }
