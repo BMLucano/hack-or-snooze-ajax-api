@@ -22,6 +22,27 @@ async function getAndShowStoriesOnStart() {
 function generateStoryMarkup(story) {
   console.debug("generateStoryMarkup", story);
 
+  const showStar = currentUser;
+
+
+  // FIXME:
+
+  // if (showStart) {
+
+    // if there is a user, show star in HTML
+    // if there is NOT a user, do NOT show star in HTML
+
+    // afterwards, check if that storyId matches a storyId in the
+    // currentUser's favorites
+
+    // If it matches in the currentUser's favorites, then we get a filled star
+    // on story.
+
+    // If it doesn't match, then we get an open-filled star.
+
+
+  // }
+
   const hostName = story.getHostName();
   return $(`
       <li id="${story.storyId}">

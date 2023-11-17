@@ -275,7 +275,7 @@ class User {
     // TODO: favorite.storyId is not matching storyId even when the same
 
     const favoriteToDeleteIndex = this.favorites.findIndex((favorite) => {
-      favorite.storyId === storyId;
+      return favorite.storyId === storyId;
     });
 
     // console.log('This is favorite.storyId =', favorite.storyId);
