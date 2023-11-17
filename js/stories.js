@@ -54,7 +54,9 @@ function putStoriesOnPage() {
 $submitForm.on("submit", getDataFromStoryFormAndDisplay);
 
 /**
- *
+ * Handles submit form.
+  Sends new story data to addStory and retrieves new story markup.
+  Displays new story on page.
  */
 
 async function getDataFromStoryFormAndDisplay() {
@@ -62,9 +64,7 @@ async function getDataFromStoryFormAndDisplay() {
   const title = $("#create-title").val();
   const url = $("#create-url").val();
 
-  const newStoryDetails = {author, title, url};
-
-  const newStory = await storyList.addStory(currentUser, newStoryDetails);
+  const newStory = await storyList.addStory(currentUser, {author, title, url});
 
   const $newStory = generateStoryMarkup(newStory);
 

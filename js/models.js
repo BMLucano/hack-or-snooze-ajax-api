@@ -73,7 +73,7 @@ class StoryList {
    * Returns the new Story instance
    */
 
-  // TODO: UNIMPLEMENTED: complete this function!
+
   async addStory(user, newStory) {
     const { title, author, url } = newStory;
     const token = user.loginToken;
@@ -81,15 +81,7 @@ class StoryList {
     console.log('This is user=', user);
     const response = await fetch(`${BASE_URL}/stories`, {
       method: "POST",
-      body: JSON.stringify(
-        {
-          token: token,
-          story: {
-            author: author,
-            title: title,
-            url: url,
-          }
-        }),
+      body: JSON.stringify({token, story: {title, author, url}}),
       headers: {
         "content-type": "application/json"
       }
@@ -100,14 +92,10 @@ class StoryList {
     const tokenStoryData = await response.json();
     console.log("tokenStorydata=", tokenStoryData);
 
-    // return tokenStoryData.map(({title, author, url}) =>
-    //   ({title, author, url})
-    // );
     const story = new Story(tokenStoryData.story);
     return story;
   }
 }
-
 
 /******************************************************************************
  * User: a user in the system (only used to represent the current user)
