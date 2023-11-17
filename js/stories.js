@@ -25,6 +25,8 @@ function generateStoryMarkup(story) {
   const hostName = story.getHostName();
   return $(`
       <li id="${story.storyId}">
+        <button type="click" data-favorite="true"
+        id ="favorite-button">Favorite/Unfavorite</button>
         <a href="${story.url}" target="a_blank" class="story-link">
           ${story.title}
         </a>
@@ -64,10 +66,29 @@ async function getDataFromStoryFormAndDisplay() {
   const title = $("#submit-title").val();
   const url = $("#submit-url").val();
 
-  const newStory = await storyList.addStory(currentUser, {author, title, url});
+  const newStory = await storyList.addStory(currentUser, { author, title, url });
 
   const $newStory = generateStoryMarkup(newStory);
 
   $allStoriesList.prepend($newStory);
 
+}
+
+/**Puts favorites list on page */
+function putFavoriteStoriesOnPage() {
+  $allStoriesList.empty();
+
+  for (let story of currentUser.favorites) {
+    const $story = generateStoryMarkup(story);
+    $allStoriesList.append($story);
+  }
+  $allStoriesList.show();
+}
+
+/**Handles favoriting/unfavoriting a story */
+$("#favorite-button").on("click", toggleStoryFavorite);
+function toggleStoryFavorite(evt) {
+  if($("#favorite-button[data-favorite]")){
+
+  }
 }

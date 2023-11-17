@@ -47,3 +47,14 @@ function navSubmitClick(evt) {
 
 }
 
+$("#nav-favorites").on("click", navFavoritesClick);
+
+/**Handles favorites link in nav when clicked.
+ * Calls function to put stories on page.  */
+
+function navFavoritesClick(evt){
+evt.preventDefault();
+console.log("navbarFavoritesCLick worked")
+putFavoriteStoriesOnPage();
+
+}
