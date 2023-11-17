@@ -11,6 +11,8 @@ function navAllStories(evt) {
   evt.preventDefault();
   hidePageComponents();
   putStoriesOnPage();
+  // $loginForm.hide();
+  // $submitForm.hide();
 }
 
 $body.on("click", "#nav-all", navAllStories);
@@ -20,7 +22,7 @@ $body.on("click", "#nav-all", navAllStories);
 function navLoginClick(evt) {
   console.debug("navLoginClick", evt);
   evt.preventDefault();
-  hidePageComponents();
+  // hidePageComponents();
   $loginForm.show();
   $signupForm.show();
 }
@@ -34,6 +36,8 @@ function updateNavOnLogin() {
   $(".main-nav-links").show();
   $navLogin.hide();
   $navLogOut.show();
+  // $loginForm.hide();
+  // $signupForm.hide();
   $navUserProfile.text(`${currentUser.username}`).show();
 }
 
@@ -43,9 +47,7 @@ $("#nav-submit").on("click", navSubmitClick);
 
 function navSubmitClick(evt) {
   evt.preventDefault();
-  hidePageComponents();
   $submitForm.show();
-
 }
 
 $("#nav-favorites").on("click", navFavoritesClick);
@@ -55,8 +57,10 @@ $("#nav-favorites").on("click", navFavoritesClick);
 
 function navFavoritesClick(evt){
 evt.preventDefault();
+// $signupForm.hide();
+// $loginForm.hide();
 hidePageComponents();
-console.log("navbarFavoritesCLick worked")
+console.log("navbarFavoritesClick worked")
 putFavoriteStoriesOnPage();
 
 }

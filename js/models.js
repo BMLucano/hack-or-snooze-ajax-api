@@ -281,7 +281,6 @@ class User {
 
     this.favorites.splice(favoriteToDeleteIndex, 1);
 
-
     console.log('This is favorites =', this.favorites);
 
   }
